@@ -4,97 +4,103 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class GreedyBestFirstSearch {
-    // fungsi untuk mencari solusi dari start ke goal
+
     public void search(NodeUCS start, NodeUCS goal) {
-        // queue untuk menyimpan node yang akan dievaluasi
+
+        // Membuat antrian (queue) yang akan digunakan untuk algoritma pencarian
         Queue<Solusi> queue = new LinkedBlockingQueue<>();
-        // solusiStart untuk menyimpan start node dengan tipe data bentukan Solusi
+
+        // Membuat objek Solusi yang merepresentasikan jalur awal
         Solusi solusiStart = new Solusi();
-        // node start dimasukan ke solusiStart
+
+        // Mengatur node awal ke dalam objek Solusi
         solusiStart.setNode(start);
-        // solusiStart dimasukan ke dalam queue
+
+        // Memasukkan jalur awal ke dalam antrian
         queue.add(solusiStart);
-        // Pesan untuk menampilkan "Mencari solusi dari start ke goal"
+
+        // Menampilkan pesan bahwa pencarian dimulai dari node awal ke node tujuan
         System.out.println("Mencari solusi dari " + start.getNilai() + " ke " + goal.getNilai());
 
-        // Iterasi selama queue tidak kosong
+        // Memulai loop pencarian selama antrian tidak kosong
         while (!queue.isEmpty()) {
-            // eval untuk menyimpan node yang akan dievaluasi
+            // Mengambil dan menghapus elemen pertama dari antrian
             Solusi eval = queue.poll();
-            // Pesan evaluasi masing-masing node
+
+            // Menampilkan node yang sedang dievaluasi
             System.out.println("Evaluasi: " + eval.getNode().getNilai());
 
-            // Pengkondisian jika eval bernilai tujuan/goal, maka semua node tetangga dari
-            // eval yang mengacu ke goal ditampilkan lalu iterasi berakhir
+            // Memeriksa apakah node yang dievaluasi adalah node tujuan
             if (eval.getNode().equals(goal)) {
-                // Pesan solusi ditemukan
+                // Jika ya, solusi ditemukan
                 System.out.println("Solusi ditemukan: ");
 
-                // Iterasi seluruh node yang mengacu ke goal
+                // Menampilkan jalur solusi yang ditemukan
                 for (NodeUCS node : eval.getNodes()) {
-                    // Pesan nilai dari masing-masing node
                     System.out.print(node.getNilai() + " -> ");
                 }
 
-                // Pesan nilai dari goal
                 System.out.println(eval.getNode().getNilai());
-                // Iterasi dihentikan
+
+                // Menghentikan pencarian
                 break;
             } else {
-                // Pesan menampilkan suksesor dari eval
+                // Jika node yang dievaluasi bukan node tujuan
+
+                // Menampilkan pesan bahwa sedang mengevaluasi suksesor dari node saat ini
                 System.out.println("Suksesor " + eval.getNode().getNilai());
-                // solusiSuksesor untuk menyimpan semua nilai suksesor dari eval
+
+                // Membuat objek Solusi untuk suksesor
                 Solusi solusiSuksesor = new Solusi();
 
-                // best untuk menyimpan node terbaik dari eval
+                // Mendefinisikan variabel best untuk memilih suksesor terbaik
                 NodeUCS best = null;
-                // min untuk menyimpan nilai cost terkecil dari eval
+
+                // Inisialisasi nilai minimum dan kedalaman
                 int min = Integer.MAX_VALUE;
-                // depth untuk menyimpan kedalaman dari eval
                 int depth = 0;
 
-                // Iterasi seluruh node tetangga dari eval
+                // Iterasi melalui tetangga dari node saat ini
                 for (NodeUCS node : eval.getNode().getTetangga()) {
-                    // Pengkondisian jika depth kurang dari 5
+                    // Memeriksa apakah kedalaman kurang dari 5
                     if (depth < 5) {
-                        // Pesan nilai dari masing-masing node tetangga
+                        // Menampilkan tetangga beserta biaya mereka
                         System.out.print(node.getNilai() + " (" + node.getCost() + "), ");
 
-                        // Jika cost dari node tetangga lebih kecil dari min
+                        // Memeriksa apakah biaya suksesor saat ini lebih rendah dari minimum
                         if (min > node.getCost()) {
-                            // maka min diisi dengan cost dari node tetangga
+                            // Jika ya, perbarui nilai minimum dan suksesor terbaik
                             min = node.getCost();
-                            // best diisi dengan node tetangga
                             best = node;
                         }
-
                     } else {
-                        // depth lebih dari 5, maka iterasi dihentikan
+                        // Jika kedalaman sudah mencapai 5, hentikan evaluasi lebih lanjut
                         return;
                     }
 
-                    // nilai depth ditambah 1
                     depth++;
                 }
 
-                // successor untuk menyimpan node terpilih
+                // Memilih suksesor terbaik
                 NodeUCS successor = best;
-                // solusiSuksesor menyimpan node terpilih
+
+                // Mengatur node terpilih ke dalam objek Solusi
                 solusiSuksesor.setNode(successor);
-                // solusiSuksesor menyimpan semua node tetangga dari eval
+
+                // Mengatur jalur yang telah dievaluasi ke dalam objek Solusi suksesor
                 solusiSuksesor.setNodes(eval.getNodes());
-                // solusiSuksesor menyimpan node eval ke dalam tetangga
+
+                // Menambahkan node saat ini ke dalam jalur suksesor
                 solusiSuksesor.getNodes().add(eval.getNode());
 
-                // Pesan menampilkan enter (\n)
+                // Menampilkan informasi node terpilih dan biayanya
                 System.out.println();
-                // Pesan menampilkan node terpilih dan costnya
                 System.out.println("Node terpilih: " + best.getNilai() + " (" + min + ")");
-                // solusiSuksesor dimasukan ke dalam queue
+
+                // Menambahkan objek Solusi suksesor ke dalam antrian
                 queue.offer(solusiSuksesor);
                 System.out.println();
             }
         }
     }
 }
-

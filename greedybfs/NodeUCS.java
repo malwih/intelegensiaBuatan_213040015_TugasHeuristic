@@ -1,82 +1,57 @@
 package TugasAI.greedybfs;
 
-import TugasAI.greedybfs.Node;
-import TugasAI.greedybfs.Node;
+import TugasAI.greedybfs.Node; // Import kelas Node yang digunakan dalam kelas ini
 import java.util.ArrayList;
 import java.util.List;
 
 public class NodeUCS {
-    // NodeUCS untuk menyimpan nilai node, cost, dan tetangga beserta costnya.
 
-    // nilai untuk menyimpan nama node
-    private String nilai;
-    // cost untuk menyimpan biaya dari node
-    private int cost;
-    // tetangga untuk menyimpan node tetangga dari node yang bersangkutan
-    private List<NodeUCS> tetangga;
+    private String nilai; // Menyimpan nilai dari node
 
-    // Constructor untuk menginisialisasi nilai dan cost dari node
+    private int cost; // Menyimpan biaya (cost) yang terkait dengan node ini
+
+    private List<NodeUCS> tetangga; // Menyimpan daftar tetangga (node-node terhubung)
+
     public NodeUCS(Node node, int cost) {
-        // nilai diambil dari node yang bersangkutan
-        this.nilai = node.getNilai();
-        // cost diambil dari parameter cost
-        this.cost = cost;
-        // inisialisasi tetangga
-        tetangga = new ArrayList<>();
+        this.nilai = node.getNilai(); // Mengambil nilai dari node yang diberikan
+        this.cost = cost; // Mengatur biaya (cost) dari node ini
+        tetangga = new ArrayList<>(); // Menginisialisasi daftar tetangga sebagai ArrayList kosong
     }
 
-    // fungsi untuk mengembalikan nama node
     public String getNilai() {
-        // mengembalikan nama node
-        return nilai;
+        return nilai; // Mengambil nilai dari node
     }
 
-    // fungsi untuk mengubah nama node
     public void setNilai(String nilai) {
-        // mengubah nama node dari parameter
-        this.nilai = nilai;
+        this.nilai = nilai; // Mengatur nilai dari node
     }
 
-    // fungsi untuk mengubah nilai biaya dari node
     public void setCost(int cost) {
-        // mengubah nilai biaya dari parameter
-        this.cost = cost;
+        this.cost = cost; // Mengatur biaya (cost) dari node
     }
 
-    // fungsi untuk mengembalikan nilai biaya dari node
     public int getCost() {
-        // mengembalikan nilai biaya dari node
-        return cost;
+        return cost; // Mengambil biaya (cost) dari node
     }
 
-    // fungsi untuk mengubah tetangga dari node
     public void setTetangga(List<NodeUCS> tetangga) {
-        // mengubah tetangga dari parameter
-        this.tetangga = tetangga;
+        this.tetangga = tetangga; // Mengatur daftar tetangga
     }
 
-    // fungsi untuk mengembalikan tetangga dari node
     public List<NodeUCS> getTetangga() {
-        // mengembalikan tetangga dari node
-        return tetangga;
+        return tetangga; // Mengambil daftar tetangga
     }
 
-    // fungsi untuk menambahkan tetangga dari node
     public void addTetangga(NodeUCS node) {
-        // menambahkan tetangga dari parameter
-        tetangga.add(node);
+        tetangga.add(node); // Menambahkan node tetangga ke dalam daftar tetangga
     }
 
-    // fungsi untuk mengecek apakah node sama atau tidak
     @Override
     public boolean equals(Object obj) {
-        // jika objek sama dengan node
         if (obj instanceof NodeUCS) {
-            // mengembalikan nilai apakah nilai dari objek sama dengan nilai dari node
-            return ((NodeUCS) obj).nilai.equals(this.nilai);
+            // Memeriksa apakah objek yang dibandingkan adalah instance dari NodeUCS
+            return ((NodeUCS) obj).nilai.equals(this.nilai); // Membandingkan nilai node
         }
-        // mengembalikan nilai false
-        return false;
+        return false; // Mengembalikan false jika objek yang dibandingkan bukan instance dari NodeUCS
     }
 }
-

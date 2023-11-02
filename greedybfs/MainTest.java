@@ -7,122 +7,104 @@ public class MainTest {
 
     public static void main(String[] args) {
         // Inisialisasi node-node dalam graf
-        Node arad = new Node("Arad");
-        Node bucharest = new Node("Bucharest");
-        Node craiova = new Node("Craiova");
-        Node dobreta = new Node("Dobreta");
-        Node eforie = new Node("Eforie");
-        Node fagaras = new Node("Fagaras");
-        Node giurgiu = new Node("Giurgiu");
-        Node hirsova = new Node("Hirsova");
-        Node iasi = new Node("Iasi");
-        Node lugoj = new Node("Lugoj");
-        Node mehadia = new Node("Mehadia");
-        Node neamt = new Node("Neamt");
-        Node oradea = new Node("Oradea");
-        Node pitesti = new Node("Pitesti");
-        Node rimnicuVilcea = new Node("Rimnicu Vilcea");
-        Node sibiu = new Node("Sibiu");
-        Node timisoara = new Node("Timisoara");
-        Node urziceni = new Node("Urziceni");
-        Node vaslui = new Node("Vaslui");
-        Node zerind = new Node("Zerind");
+        Node jakarta = new Node("Jakarta");
+        Node baliu = new Node("Baliu");
+        Node surabaya = new Node("Surabaya");
+        Node semarang = new Node("Semarang");
+        Node bandung = new Node("Bandung");
+        Node yogyakarta = new Node("Yogyakarta");
+        Node malang = new Node("Malang");
+        Node banyuwangi = new Node("Banyuwangi");
+        Node solo = new Node("Solo");
+        Node maluku = new Node("Maluku");
+        Node papua = new Node("Papua");
+        Node kalimantan = new Node("Kalimantan");
+        Node sulawesi = new Node("Sulawesi");
+        Node sumatra = new Node("Sumatra");
+        Node lombok = new Node("Lombok");
+        Node timor = new Node("Timor");
+        Node ambon = new Node("Ambon");
 
         // Inisialisasi node-node dengan biaya yang terkait
-        NodeUCS aradUCS = new NodeUCS(arad, 366);
-        NodeUCS bucharestUCS = new NodeUCS(bucharest, 0);
-        NodeUCS craiovaUCS = new NodeUCS(craiova, 160);
-        NodeUCS dobretaUCS = new NodeUCS(dobreta, 242);
-        NodeUCS eforieUCS = new NodeUCS(eforie, 161);
-        NodeUCS fagarasUCS = new NodeUCS(fagaras, 176);
-        NodeUCS giurgiuUCS = new NodeUCS(giurgiu, 77);
-        NodeUCS hirsovaUCS = new NodeUCS(hirsova, 151);
-        NodeUCS iasiUCS = new NodeUCS(iasi, 226);
-        NodeUCS lugojUCS = new NodeUCS(lugoj, 244);
-        NodeUCS mehadiaUCS = new NodeUCS(mehadia, 241);
-        NodeUCS neamtUCS = new NodeUCS(neamt, 234);
-        NodeUCS oradeaUCS = new NodeUCS(oradea, 380);
-        NodeUCS pitestiUCS = new NodeUCS(pitesti, 10);
-        NodeUCS rimnicuVilceaUCS = new NodeUCS(rimnicuVilcea, 193);
-        NodeUCS sibiuUCS = new NodeUCS(sibiu, 253);
-        NodeUCS timisoaraUCS = new NodeUCS(timisoara, 329);
-        NodeUCS urziceniUCS = new NodeUCS(urziceni, 80);
-        NodeUCS vasluiUCS = new NodeUCS(vaslui, 199);
-        NodeUCS zerindUCS = new NodeUCS(zerind, 374);
+        NodeUCS jakartaUCS = new NodeUCS(jakarta, 366);
+        NodeUCS baliuUCS = new NodeUCS(baliu, 0);
+        NodeUCS surabayaUCS = new NodeUCS(surabaya, 160);
+        NodeUCS semarangUCS = new NodeUCS(semarang, 242);
+        NodeUCS bandungUCS = new NodeUCS(bandung, 161);
+        NodeUCS yogyakartaUCS = new NodeUCS(yogyakarta, 176);
+        NodeUCS malangUCS = new NodeUCS(malang, 77);
+        NodeUCS banyuwangiUCS = new NodeUCS(banyuwangi, 151);
+        NodeUCS soloUCS = new NodeUCS(solo, 226);
+        NodeUCS malukuUCS = new NodeUCS(maluku, 244);
+        NodeUCS papuaUCS = new NodeUCS(papua, 241);
+        NodeUCS kalimantanUCS = new NodeUCS(kalimantan, 234);
+        NodeUCS sulawesiUCS = new NodeUCS(sulawesi, 380);
+        NodeUCS sumatraUCS = new NodeUCS(sumatra, 10);
+        NodeUCS lombokUCS = new NodeUCS(lombok, 193);
+        NodeUCS timorUCS = new NodeUCS(timor, 253);
+        NodeUCS ambonUCS = new NodeUCS(ambon, 329);
 
         // Menambahkan tetangga untuk masing-masing node dengan menggunakan metode addTetangga
-        aradUCS.addTetangga(zerindUCS);
-        aradUCS.addTetangga(sibiuUCS);
-        aradUCS.addTetangga(timisoaraUCS);
+        jakartaUCS.addTetangga(baliuUCS);
+        jakartaUCS.addTetangga(surabayaUCS);
+        jakartaUCS.addTetangga(semarangUCS);
 
-        bucharestUCS.addTetangga(fagarasUCS);
-        bucharestUCS.addTetangga(pitestiUCS);
-        bucharestUCS.addTetangga(giurgiuUCS);
-        bucharestUCS.addTetangga(urziceniUCS);
+        baliuUCS.addTetangga(malukuUCS);
+        baliuUCS.addTetangga(papuaUCS);
+        baliuUCS.addTetangga(kalimantanUCS);
+        baliuUCS.addTetangga(sulawesiUCS);
 
-        craiovaUCS.addTetangga(dobretaUCS);
-        craiovaUCS.addTetangga(rimnicuVilceaUCS);
-        craiovaUCS.addTetangga(pitestiUCS);
+        surabayaUCS.addTetangga(banyuwangiUCS);
+        surabayaUCS.addTetangga(malangUCS);
+        surabayaUCS.addTetangga(bandungUCS);
+        surabayaUCS.addTetangga(yogyakartaUCS);
 
-        dobretaUCS.addTetangga(mehadiaUCS);
-        dobretaUCS.addTetangga(craiovaUCS);
+        semarangUCS.addTetangga(soloUCS);
+        semarangUCS.addTetangga(yogyakartaUCS);
 
-        eforieUCS.addTetangga(hirsovaUCS);
+        bandungUCS.addTetangga(jakartaUCS);
+        bandungUCS.addTetangga(sumatraUCS);
 
-        fagarasUCS.addTetangga(sibiuUCS);
-        fagarasUCS.addTetangga(bucharestUCS);
+        yogyakartaUCS.addTetangga(soloUCS);
+        yogyakartaUCS.addTetangga(jakartaUCS);
 
-        giurgiuUCS.addTetangga(bucharestUCS);
+        malangUCS.addTetangga(surabayaUCS);
+        malangUCS.addTetangga(banyuwangiUCS);
 
-        hirsovaUCS.addTetangga(urziceniUCS);
-        hirsovaUCS.addTetangga(eforieUCS);
+        banyuwangiUCS.addTetangga(surabayaUCS);
+        banyuwangiUCS.addTetangga(malangUCS);
 
-        iasiUCS.addTetangga(neamtUCS);
-        iasiUCS.addTetangga(vasluiUCS);
+        soloUCS.addTetangga(semarangUCS);
+        soloUCS.addTetangga(yogyakartaUCS);
 
-        lugojUCS.addTetangga(timisoaraUCS);
-        lugojUCS.addTetangga(mehadiaUCS);
+        malukuUCS.addTetangga(baliuUCS);
+        malukuUCS.addTetangga(papuaUCS);
 
-        mehadiaUCS.addTetangga(lugojUCS);
-        mehadiaUCS.addTetangga(dobretaUCS);
+        papuaUCS.addTetangga(baliuUCS);
+        papuaUCS.addTetangga(malukuUCS);
 
-        neamtUCS.addTetangga(iasiUCS);
+        kalimantanUCS.addTetangga(baliuUCS);
+        kalimantanUCS.addTetangga(sulawesiUCS);
 
-        oradeaUCS.addTetangga(zerindUCS);
-        oradeaUCS.addTetangga(sibiuUCS);
+        sulawesiUCS.addTetangga(baliuUCS);
+        sulawesiUCS.addTetangga(kalimantanUCS);
 
-        pitestiUCS.addTetangga(rimnicuVilceaUCS);
-        pitestiUCS.addTetangga(craiovaUCS);
-        pitestiUCS.addTetangga(bucharestUCS);
+        sumatraUCS.addTetangga(jakartaUCS);
+        sumatraUCS.addTetangga(bandungUCS);
 
-        rimnicuVilceaUCS.addTetangga(sibiuUCS);
-        rimnicuVilceaUCS.addTetangga(craiovaUCS);
-        rimnicuVilceaUCS.addTetangga(pitestiUCS);
+        lombokUCS.addTetangga(baliuUCS);
 
-        sibiuUCS.addTetangga(aradUCS);
-        sibiuUCS.addTetangga(oradeaUCS);
-        sibiuUCS.addTetangga(fagarasUCS);
-        sibiuUCS.addTetangga(rimnicuVilceaUCS);
+        timorUCS.addTetangga(kalimantanUCS);
 
-        timisoaraUCS.addTetangga(aradUCS);
-        timisoaraUCS.addTetangga(lugojUCS);
-
-        urziceniUCS.addTetangga(bucharestUCS);
-        urziceniUCS.addTetangga(vasluiUCS);
-        urziceniUCS.addTetangga(hirsovaUCS);
-
-        vasluiUCS.addTetangga(iasiUCS);
-        vasluiUCS.addTetangga(urziceniUCS);
-
-        zerindUCS.addTetangga(aradUCS);
-        zerindUCS.addTetangga(oradeaUCS);
+        ambonUCS.addTetangga(malukuUCS);
 
         // Menampilkan hasil dari algoritma Greedy Best First Search
         System.out.println("Greedy BFS");
-        // Membuat objek GreedyBestFirstSearch dengan nama bfs
+        // Membuat objek GreedyBestFirstSearch
         GreedyBestFirstSearch bfs = new GreedyBestFirstSearch();
-        // Memanggil metode search pada objek bfs dengan node awal (Arad) dan tujuan (Bucharest) sebagai parameter
-        bfs.search(aradUCS, bucharestUCS);
+        // Memanggil metode search pada objek bfs dengan "Jakarta" sebagai node awal dan "Baliu" sebagai tujuan
+        bfs.search(jakartaUCS, baliuUCS);
+        // Mencetak baris kosong
         System.out.println();
     }
 }

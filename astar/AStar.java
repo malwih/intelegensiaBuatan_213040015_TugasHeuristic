@@ -43,46 +43,49 @@ public class AStar {
 
                 NodeUCS best = null; // Simpul terbaik untuk digunakan selanjutnya
                 int min = Integer.MAX_VALUE; // Biaya minimum untuk suksesor terbaik
-                int cost = 0; // Indeks biaya suksesor dalam daftar biaya
+                int cost = 0; // Biaya indeks suksesor
                 int i = 0;
 
                 for (NodeUCS node : eval.getNode().getTetangga()) {
-                    int costTetangga = eval.getNode().getTetanggaCost().get(i);
-
                     if (eval.getNode().getTetanggaCost().size() > i) {
+                        int costTetangga = eval.getNode().getTetanggaCost().get(i);
                         int apakahMin = node.getCost() + costTetangga + costAll;
 
                         System.out.print(node.getNilai() + " (" + node.getCost() + " + " +
                                 costTetangga + " + " + costAll + "), = " + apakahMin + "\n");
 
-                        if (node.isVisited == true) {
+                        if (node.isVisited) {
                             System.out.println(node.getNilai() + " sudah dikunjungi.\n");
                         }
 
-                        if (min > apakahMin && node.isVisited == false) {
-                            min = apakahMin;
-                            best = node;
-                            cost = i;
-                            node.isVisited = true;
+                        if (!node.isVisited) {
+                            if (min > apakahMin) {
+                                min = apakahMin;
+                                best = node;
+                                cost = i;
+                            }
                         }
                     } else {
-                        return;
+                        // Menghindari penggunaan 'return' di sini.
+                        continue; // Melanjutkan ke suksesor berikutnya jika indeks cost tidak valid
                     }
                     i++;
                 }
 
-                NodeUCS successor = best; // Simpul terbaik dijadikan suksesor
-                solusiSuksesor.setNode(successor); // Mengatur simpul terbaik sebagai simpul tujuan pada objek Solusi
-                solusiSuksesor.setNodes(eval.getNodes()); // Menyalin daftar simpul dari objek Solusi evaluasi
-                solusiSuksesor.getNodes().add(eval.getNode()); // Menambahkan simpul saat ini ke daftar simpul
+                if (best != null) {
+                    NodeUCS successor = best; // Simpul terbaik dijadikan suksesor
+                    solusiSuksesor.setNode(successor); // Mengatur simpul terbaik sebagai simpul tujuan pada objek Solusi
+                    solusiSuksesor.setNodes(eval.getNodes()); // Menyalin daftar simpul dari objek Solusi evaluasi
+                    solusiSuksesor.getNodes().add(eval.getNode()); // Menambahkan simpul saat ini ke daftar simpul
 
-                System.out.println();
-                System.out.println("Node terpilih: " + best.getNilai() + " (" + min + ")");
+                    System.out.println();
+                    System.out.println("Node terpilih: " + best.getNilai() + " (" + min + ")");
 
-                costAll += eval.getNode().getTetanggaCost().get(cost); // Menambahkan biaya suksesor ke biaya total
+                    costAll += eval.getNode().getTetanggaCost().get(cost); // Menambahkan biaya suksesor ke biaya total
 
-                queue.offer(solusiSuksesor); // Memasukkan solusi suksesor ke dalam antrian
-                System.out.println();
+                    queue.offer(solusiSuksesor); // Memasukkan solusi suksesor ke dalam antrian
+                    System.out.println();
+                }
             }
         }
     }

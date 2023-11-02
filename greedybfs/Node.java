@@ -4,62 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
-    // Node untuk menyimpan nilai node dan tetangga beserta costnya.
-    
-    // nilai untuk menyimpan nama node
-    private String nilai;
-    
-    // tetangga untuk menyimpan node tetangga dari node yang bersangkutan
-    private List<Node> tetangga;
 
-    // Constructor untuk menginisialisasi nilai dari node
+    private String nilai; // Menyimpan nilai dari node
+
+    private List<Node> tetangga; // Menyimpan daftar tetangga (node-node terhubung)
+
     public Node(String nilai) {
-        // inisialisasi tetangga
-        tetangga = new ArrayList<>();
-        // nilai diambil dari parameter
-        this.nilai = nilai;
+        tetangga = new ArrayList<>(); // Menginisialisasi daftar tetangga sebagai ArrayList kosong
+        this.nilai = nilai; // Mengatur nilai dari node saat objek Node dibuat
     }
 
-    // fungsi untuk mengubah nilai dari node
     public void setNilai(String nilai) {
-        // mengubah nilai dari parameter
-        this.nilai = nilai;
+        this.nilai = nilai; // Mengatur nilai dari node
     }
 
-    // fungsi untuk mengembalikan nilai dari node
     public String getNilai() {
-        // mengembalikan nilai dari node
-        return nilai;
+        return nilai; // Mengambil nilai dari node
     }
 
-    // fungsi untuk mengubah tetangga dari node
     public void setTetangga(List<Node> tetangga) {
-        // mengubah tetangga dari parameter
-        this.tetangga = tetangga;
+        this.tetangga = tetangga; // Mengatur daftar tetangga
     }
 
-    // fungsi untuk mengembalikan tetangga dari node
     public List<Node> getTetangga() {
-        // mengembalikan tetangga dari node
-        return tetangga;
+        return tetangga; // Mengambil daftar tetangga
     }
 
-    // fungsi untuk menambahkan tetangga dari node
     public void addTetangga(Node node) {
-        // menambahkan tetangga dari parameter
-        tetangga.add(node);
+        tetangga.add(node); // Menambahkan node tetangga ke dalam daftar tetangga
     }
 
-    // fungsi untuk mengecek apakah node sama atau tidak
     @Override
     public boolean equals(Object obj) {
-        // jika objek sama dengan node
         if (obj instanceof Node) {
-            // mengembalikan nilai apakah nilai dari objek sama dengan nilai dari node
-            return ((Node) obj).nilai.equals(this.nilai);
+            // Memeriksa apakah objek yang dibandingkan adalah instance dari Node
+            return ((Node) obj).nilai.equals(this.nilai); // Membandingkan nilai node
         }
-        // mengembalikan nilai false
-        return false;
+        return false; // Mengembalikan false jika objek yang dibandingkan bukan instance dari Node
     }
 }
-

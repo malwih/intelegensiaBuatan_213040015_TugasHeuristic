@@ -1,46 +1,33 @@
 package TugasAI.greedybfs;
 
-import TugasAI.greedybfs.NodeUCS;
+import TugasAI.greedybfs.NodeUCS; // Import kelas NodeUCS yang digunakan dalam kelas ini
 import TugasAI.greedybfs.NodeUCS;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Solusi {
-    // Solusi untuk menyimpan node-node yang menjadi solusi yang ditemukan
-    
-    // nodes untuk menyimpan tetangga dari node yang menjadi solusi
-    private List<NodeUCS> nodes;
-    // node untuk menyimpan node yang menjadi solusi
-    private NodeUCS node;
 
-    // Constructor untuk menginisialisasi nodes
+    private List<NodeUCS> nodes; // Menyimpan daftar simpul (nodes) dalam solusi
+
+    private NodeUCS node; // Menyimpan simpul (node) dalam solusi
+
     public Solusi() {
-        // inisialisasi nodes
-        nodes = new ArrayList<>();
+        nodes = new ArrayList<>(); // Menginisialisasi daftar simpul sebagai ArrayList kosong
     }
 
-    // fungsi untuk mengubah node solusi
     public void setNode(NodeUCS node) {
-        // mengubah node dari parameter
-        this.node = node;
+        this.node = node; // Mengatur simpul (node) dalam solusi
     }
 
-    // fungsi untuk mengembalikan node
     public NodeUCS getNode() {
-        // mengembalikan node
-        return node;
+        return node; // Mengambil simpul (node) dalam solusi
     }
 
-    // fungsi untuk mengubah node tetangga
     public void setNodes(List<NodeUCS> nodes) {
-        // mengubah tetangga dari parameter
-        this.nodes = new ArrayList<>(nodes);
+        this.nodes = new ArrayList<>(nodes); // Mengatur daftar simpul dalam solusi dengan mengkopi dari daftar yang diberikan
     }
 
-    // fungsi untuk mengembalikan tetangga
     public List<NodeUCS> getNodes() {
-        // mengembalikan tetangga
-        return nodes;
+        return nodes; // Mengambil daftar simpul dalam solusi
     }
 }
-
